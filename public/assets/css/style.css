@@ -1,0 +1,193 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+.container {
+    background: #ffffff;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    
+    animation: slideBounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    transform-origin: top center;
+}
+
+.container:nth-child(2) {
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+@keyframes slideBounce {
+    0% { transform: translateY(60px) scale(0.9); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+label {
+    display : block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+input[type="text"], 
+input[type="date"], 
+select, 
+textarea, 
+.search-box {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+input[type="text"]:focus, 
+input[type="date"]:focus, 
+select:focus, 
+textarea:focus, 
+.search-box:focus {
+    transform: scale(1.02);
+    border-color: #0984e3;
+    box-shadow: 0 5px 15px rgba(9, 132, 227, 0.2);
+    outline: none;
+}
+
+.inline {
+    margin-top: 8px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.inline label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background: #00b894;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+    animation: floating 3s ease-in-out infinite;
+    transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: #00cec9;
+    animation: jelly 0.6s ease;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes jelly {
+    0%, 100% { transform: scale(1, 1); }
+    25% { transform: scale(1.05, 0.95); }
+    50% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.02, 0.98); }
+}
+
+.tabel-data {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabel-data th, .tabel-data td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabel-data th {
+    background: #2d3436;
+    color: white;
+}
+
+.tabel-data tbody tr {
+    opacity: 0;
+    animation: slideRight 0.5s ease forwards;
+}
+.tabel-data tbody tr:nth-child(1) { animation-delay: 0.3s; }
+.tabel-data tbody tr:nth-child(2) { animation-delay: 0.4s; }
+.tabel-data tbody tr:nth-child(3) { animation-delay: 0.5s; }
+.tabel-data tbody tr:nth-child(4) { animation-delay: 0.6s; }
+.tabel-data tbody tr:nth-child(5) { animation-delay: 0.7s; }
+.tabel-data tbody tr:hover {
+    background-color: #f1f2f6;
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+@keyframes slideRight {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.btn-edit, .btn-delete {
+    padding: 6px 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.btn-edit { background: #0984e3; }
+.btn-delete { background: #d63031; margin-left: 5px; }
+.btn-edit:hover, .btn-delete:hover {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+.alert-error {
+    background: #ffeaa7;
+    border-left: 4px solid #e17055;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    color: #c0392b;
+}
+.alert-error ul {
+    margin: 0;
+    padding-left: 18px;
+}
