@@ -81,16 +81,7 @@
                 {{ old('jk', $peserta->jk) == 1 ? 'checked' : '' }}> Wanita
         </div>
 
-        <label>Hobi</label>
-        <div class="inline">
-            @foreach(['Membaca','Menulis','Olahraga'] as $h)
-                <label>
-                    <input type="checkbox" name="hobi[]" value="{{ $h }}"
-                        {{ in_array($h, old('hobi', $peserta->hobi_array)) ? 'checked' : '' }}>
-                    {{ $h }}
-                </label>
-            @endforeach
-        </div>
+
 
         <label>Pas Foto</label>
         @if($peserta->foto)

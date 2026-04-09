@@ -16,7 +16,6 @@ class Peserta extends Model
         'alamat',
         'telepon',
         'jk',
-        'hobi',
         'foto',
         'provinsi_id',
         'kabkot_id',
@@ -45,8 +44,5 @@ class Peserta extends Model
         };
     }
 
-    public function getHobiArrayAttribute(): array
-    {
-        return $this->hobi ? explode(', ', $this->hobi) : [];
-    }
+
 }

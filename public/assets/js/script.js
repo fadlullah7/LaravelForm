@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ── Preview foto ──────────────────────────────────────────────
     const inputFoto = document.getElementById('inputFoto');
     const preview   = document.getElementById('preview');
     if (inputFoto && preview) {
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ── Dropdown Provinsi → Kabkot (AJAX) ────────────────────────
     const selectProvinsi = document.getElementById('pilihProvinsi');
     const selectKabkot   = document.getElementById('pilihKabkot');
 
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
             selectKabkot.innerHTML = '<option value="">Memuat data...</option>';
             selectKabkot.disabled  = true;
 
-            // GET_KABKOT_URL didefinisikan di Blade view
             fetch(`${GET_KABKOT_URL}?id_prov=${idProvinsi}`)
                 .then(res => res.json())
                 .then(data => {

@@ -69,16 +69,6 @@
             <input type="radio" name="jk" value="Wanita" {{ old('jk') == 'Wanita' ? 'checked' : '' }}> Wanita
         </div>
 
-        <label>Hobi</label>
-        <div class="inline">
-            @foreach(['Membaca','Menulis','Olahraga'] as $h)
-                <label>
-                    <input type="checkbox" name="hobi[]" value="{{ $h }}"
-                        {{ in_array($h, old('hobi', [])) ? 'checked' : '' }}>
-                    {{ $h }}
-                </label>
-            @endforeach
-        </div>
 
         <label>Pas Foto</label>
         <input type="file" name="foto" id="inputFoto" accept="image/*">

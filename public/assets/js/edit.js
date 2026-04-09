@@ -1,20 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ── Preview foto baru ─────────────────────────────────────────
-    const inputFoto    = document.getElementById('inputFotoEdit');
-    const previewBaru  = document.getElementById('previewBaru');
-    const previewLama  = document.getElementById('previewLama');
+   // ── Preview foto baru ─────────────────────────────────────────
+const inputFoto   = document.getElementById('inputFotoEdit');
+const previewBaru = document.getElementById('previewBaru');
+const previewLama = document.getElementById('previewLama');
 
-    if (inputFoto && previewBaru) {
-        inputFoto.onchange = () => {
-            const [file] = inputFoto.files;
-            if (file) {
-                previewBaru.src          = URL.createObjectURL(file);
-                previewBaru.style.display = 'block';
-                if (previewLama) previewLama.style.opacity = '0.3';
-            }
-        };
+// Tampilkan foto lama saat halaman dimuat
+if (previewLama) {
+    const fotoLamaSrc = previewLama.getAttribute('data-src') || previewLama.src;
+    if (fotoLamaSrc) {
+        previewLama.src           = fotoLamaSrc;
+        previewLama.style.display = 'block';
+        previewLama.style.opacity = '1';
     }
+}
+
+// Preview foto baru saat file dipilih
+if (inputFoto && previewBaru) {
+    inputFoto.onchange = () => {
+        const [file] = inputFoto.files;
+        if (file) {
+            // Tampilkan preview baru
+            previewBaru.src           = URL.createObjectURL(file);
+            previewBaru.style.display = 'block';
+
+            // Redup-kan foto lama sebagai perbandingan
+            if (previewLama) {
+                previewLama.style.opacity    = '0.4';
+                previewLama.style.transition = 'opacity 0.3s ease';
+            }
+        } else {
+            // Reset jika file dibatalkan
+            previewBaru.src           = '';
+            previewBaru.style.display = 'none';
+            if (previewLama) previewLama.style.opacity = '1';
+        }
+    };
+}
 
     // ── Validasi form edit ────────────────────────────────────────
     const form = document.getElementById('formEdit');
